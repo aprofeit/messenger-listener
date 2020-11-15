@@ -1,5 +1,5 @@
-Example message sent to group.
-
+Example Messages
+================
 {
   type: 'message',
   senderID: '502920765',
@@ -23,3 +23,5 @@ Example message sent to group.
   timestamp: '1605407759726',
   isGroup: true
 }
+
+Just send POST request from node app.

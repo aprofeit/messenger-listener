@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "facebook-chat-api": "Schmavery/facebook-chat-api"
+    "facebook-chat-api": "Schmavery/facebook-chat-api",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1"
   }
 }
