@@ -3,8 +3,8 @@ import fetch from 'node-fetch'
 
 import fs from 'fs'
 
-const HISTORY_URL = 'http://mockbin.org/bin/8a2b1956-215f-4f83-8e2f-57bf0ff25807'
-const THREAD_ID = '4026672720681638'
+const HISTORY_URL = process.env.PORT || 'http://localhost:3000/messages'
+const ALLOWED_THREAD_IDS = ['4026672720681638', '100057382012154']
 
 login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, { forceLogin: true, selfListen: true }, (err, api) => {
   if (err) return console.error(err)
@@ -12,10 +12,15 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, { forceL
   api.listenMqtt((err, message) => {
     if (err) return console.error(err)
 
-    if (message.type !== 'message' || message.threadID !== THREAD_ID) {
+    if (!ALLOWED_THREAD_IDS.includes(message.threadID)) {
       return
     }
 
+    if (message.type !== 'message') {
+      return
+    }
+
+    console.log(message.body)
     fetch(HISTORY_URL, {
       method: 'POST',
       headers: {
@@ -23,7 +28,5 @@ login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, { forceL
       },
       body: JSON.stringify({ message: message })
     })
-
-    console.log(message)
   })
 })
