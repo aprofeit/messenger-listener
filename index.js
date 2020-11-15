@@ -9,6 +9,7 @@ const ALLOWED_THREAD_IDS = ['4026672720681638', '100057382012154']
 login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, { forceLogin: true, selfListen: true }, (err, api) => {
   if (err) return console.error(err)
 
+  api.markAsReadAll()
   api.listenMqtt((err, message) => {
     if (err) return console.error(err)
 
