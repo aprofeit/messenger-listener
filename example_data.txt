@@ -1,0 +1,25 @@
+Example message sent to group.
+
+{
+  type: 'message',
+  senderID: '502920765',
+  body: 'Adam is sexy',
+  threadID: '4026672720681638',
+  messageID: 'mid.$gAA5OPM0kmqZ7-wWkyF1ycBizOwi8',
+  attachments: [],
+  mentions: {},
+  timestamp: '1605407628488',
+  isGroup: true
+}
+
+{
+  type: 'message',
+  senderID: '502920765',
+  body: 'Ood fashioneds are amazing here.  And people buy me things',
+  threadID: '4026672720681638',
+  messageID: 'mid.$gAA5OPM0kmqZ7-welbl1ycJjt28Sn',
+  attachments: [],
+  mentions: {},
+  timestamp: '1605407759726',
+  isGroup: true
+}
