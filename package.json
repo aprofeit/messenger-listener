@@ -10,7 +10,6 @@
     "node-fetch": "^2.6.1"
   },
   "scripts": {
-    "build": "node build.js",
     "start": "node index.js"
   }
 }
